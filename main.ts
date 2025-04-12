@@ -1,12 +1,12 @@
 
-interface ListType {
+export interface ListType {
   hash: string
   data: any | undefined 
   timeStamp: string 
   text: string|null
 }
 
-class List {
+export class List {
   lists:ListType[]
   constructor(data: any) {
     this.lists = []
@@ -32,7 +32,7 @@ class List {
         nd.push(list)
       })
 
-     this.lists = nd
+      this.lists = nd
     } else {
       const list:ListType = {
         hash: `${Math.floor(Math.random() * 9999999999)}`,
@@ -47,17 +47,6 @@ class List {
 }
 
 
-const todoList = [{
-  id: 0,
-  todo: "clean my phone",
-  status: false
-},
-{
-  id: 1,
-  todo: "clean my PC",
-  status: false
-}]
-
-
-const list = new List(todoList)
-console.log(list)
+export function list(data:any) {
+  return new List(data)
+}
